@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dům Eliška</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                DOMOV PRO SENIORY ELIŠKY PURKYŇOVÉ
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <!-- Tady budou hamburger řádky umístěné pomocí CSS -->
+                <span class="hamburger"></span>
+            </button>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="{{ url_for('index') }}">Domů</a></li>
+                    <li><a href="{{ url_for('o_nas') }}">O nás</a></li>
+                    <li><a href="{{ url_for('aktuality') }}">Aktuality</a></li>
+                    <li><a href="{{ url_for('informace') }}">Informace</a></li>
+                    <li><a href="{{ url_for('dokumenty') }}">Dokumenty</a></li>
+                    <li><a href="{{ url_for('kontakty') }}">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="mobile-nav-modal">
+        <button class="close-modal" aria-label="close navigation">&times;</button>
+        <ul class="mobile-nav">
+            <li><a href="{{ url_for('index') }}">Domů</a></li>
+            <li><a href="{{ url_for('o_nas') }}">O nás</a></li>
+            <li><a href="{{ url_for('aktuality') }}">Aktuality</a></li>
+            <li><a href="{{ url_for('informace') }}">Informace</a></li>
+            <li><a href="{{ url_for('dokumenty') }}">Dokumenty</a></li>
+            <li><a href="{{ url_for('kontakty') }}">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Patička -->
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
+</body>
+</html>

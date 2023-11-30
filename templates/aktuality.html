@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="aktuality">
+    <h1>Aktuality</h1>
+    <!-- Vložte smyčku pro projití aktualit -->
+    {% for aktualita in aktuality %}
+    <div class="aktualita">
+        <h2>{{ aktualita.titulek }}</h2>
+        <p>{{ aktualita.obsah }}</p>
+        <!-- Odkaz na detail aktuality, pokud je potřeba -->
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

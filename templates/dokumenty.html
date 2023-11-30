@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dokumenty">
+    <h1>Dokumenty</h1>
+    <div class="dokumenty-sekce">
+        <h2>Dokumenty pro žadatele</h2>
+        <!-- Vložte smyčku pro projití dokumentů pro žadatele -->
+        {% for dokument in dokumenty_zadatele %}
+        <div class="dokument">
+            <a href="{{ url_for('static', filename=dokument.soubor) }}">{{ dokument.nazev }}</a>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Opakujte pro další kategorie dokumentů -->
+</div>
+{% endblock %}

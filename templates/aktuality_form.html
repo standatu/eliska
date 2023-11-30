@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Editovat Aktuality</title>
+</head>
+<body>
+    <h1>{{ 'Přidat' if not aktualita.id else 'Upravit' }} Aktualitu</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            <label for="titulek">Titulek:</label><br>
+            {{ form.titulek }}
+            {% for error in form.titulek.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            <label for="obsah">Obsah:</label><br>
+            {{ form.obsah }}
+            {% for error in form.obsah.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            <label for="datum_publikace">Datum Publikace:</label><br>
+            {{ form.datum_publikace }}
+            {% for error in form.datum_publikace.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            <button type="submit">{{ 'Přidat' if not aktualita.id else 'Upravit' }} Aktualitu</button>
+        </p>
+    </form>
+    <a href="{{ url_for('aktuality') }}">Zpět na seznam aktualit</a>
+</body>
+</html>
